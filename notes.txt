@@ -1,0 +1,16 @@
+Documentation URL: https://github.com/swagger-api/swagger-core/wiki/annotations
+
+In swagger-maven-plugin:
+AbstractDocumentSource has a Reader (SpringMVC & Abstract)
+ApiDocumentMojo uses the DocumentSource
+
+What I will do is:
+Do the Document Reader which is mainly the Reader in above!
+
+ApiDocumetMojo: 
+- Will just validate ApiSource
+- Will send ApiSource to Reader, and get a swagger (WILL NOT CREATE A SWAGGER)
+- Will write the swagger to File
+
+DocumetReader (Abstract):
+
