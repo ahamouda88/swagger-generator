@@ -33,8 +33,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 
 import com.google.common.collect.Sets;
-import com.swagger.document.factory.ParamFactory;
 import com.swagger.document.mavenplugin.ApiSource;
+import com.swagger.document.reader.utils.ParamComponentUtils;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -171,33 +171,7 @@ public abstract class DocumentReader {
 		return responseHeaders;
 	}
 
-	protected Set<Map<String, Object>> parseCustomExtensions(Extension[] extensions) {
-		if (extensions == null) {
-			return Collections.emptySet();
-		}
-		Set<Map<String, Object>> resultSet = new HashSet<Map<String, Object>>();
-		for (Extension extension : extensions) {
-			if (extension == null) {
-				continue;
-			}
-			Map<String, Object> extensionProperties = new HashMap<String, Object>();
-			for (ExtensionProperty extensionProperty : extension.properties()) {
-				String name = extensionProperty.name();
-				if (!name.isEmpty()) {
-					String value = extensionProperty.value();
-					extensionProperties.put(name, value);
-				}
-			}
-			if (!extension.name().isEmpty()) {
-				Map<String, Object> wrapper = new HashMap<String, Object>();
-				wrapper.put(extension.name(), extensionProperties);
-				resultSet.add(wrapper);
-			} else {
-				resultSet.add(extensionProperties);
-			}
-		}
-		return resultSet;
-	}
+
 
 	protected void updatePath(String operationPath, String httpMethod, Operation operation) {
 		if (httpMethod == null) {
@@ -311,16 +285,6 @@ public abstract class DocumentReader {
 		for (SecurityRequirement security : securities) {
 			operation.security(security);
 		}
-	}
-
-	private boolean isApiParamHidden(List<Annotation> parameterAnnotations) {
-		for (Annotation parameterAnnotation : parameterAnnotations) {
-			if (parameterAnnotation instanceof ApiParam) {
-				return ((ApiParam) parameterAnnotation).hidden();
-			}
-		}
-
-		return false;
 	}
 
 	private boolean hasValidAnnotations(List<Annotation> parameterAnnotations) {
@@ -482,7 +446,7 @@ public abstract class DocumentReader {
 	}
 
 	private Parameter readImplicitParam(ApiImplicitParam param, Class<?> apiClass) {
-		Parameter parameter = ParamFactory.createParameter(param);
+		Parameter parameter = ParamComponentUtils.createParameter(param);
 
 		return ParameterProcessor.applyAnnotations(swagger, parameter, apiClass,
 				Arrays.asList(new Annotation[] { param }));
