@@ -36,27 +36,8 @@
                                     <name>Apache 2.0</name>
                                 </license>
                             </info>
-<!--                             <securityDefinitions>
-                                <securityDefinition>
-                                    <name>basicAuth</name>
-                                    <type>basic</type>
-                                </securityDefinition>
-                                <securityDefinition>
-                                    <json>/securityDefinition.json</json>
-                                </securityDefinition>
-                            </securityDefinitions> -->
                             <outputFormats>json</outputFormats>
                             <swaggerDirectory>${basedir}/generated/swagger-ui-spring</swaggerDirectory>
-                            <swaggerApiReader>com.wordnik.springmvc.VendorExtensionsSpringMvcReader</swaggerApiReader>
-                            <modelSubstitute>/override.map</modelSubstitute>
-                            <apiModelPropertyAccessExclusions>
-                                <apiModelPropertyAccessExclusion>secret-property</apiModelPropertyAccessExclusion>
-                                <apiModelPropertyAccessExclusion>another-secret-property</apiModelPropertyAccessExclusion>
-                                <apiModelPropertyAccessExclusion>exclude-when-jev-option-not-set</apiModelPropertyAccessExclusion>
-                            </apiModelPropertyAccessExclusions>
-                            <swaggerExtensions>
-                            	<swaggerExtension>com.wordnik.sample.VendorExtensionWithoutReader</swaggerExtension>
-                            </swaggerExtensions>
                         </apiSource>
                     </apiSources> 
                 </configuration>

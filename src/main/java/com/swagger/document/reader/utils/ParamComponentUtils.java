@@ -38,7 +38,7 @@ public final class ParamComponentUtils {
 		return supplier == null ? null : supplier.get();
 	}
 
-	// TODO: Need to test
+	// TODO: Need to test(This is for JAX-RS)
 	public static boolean isApiParamHidden(List<Annotation> parameterAnnotations) {
 		return parameterAnnotations.stream().filter(annotation -> (annotation instanceof ApiParam))
 				.map(annotation -> ((ApiParam) annotation).hidden()).findAny().orElse(false);

@@ -1,4 +1,4 @@
-package com.swagger.document.utils;
+package com.groupon.swagger.document.utils;
 
 import static org.junit.Assert.assertEquals;
 

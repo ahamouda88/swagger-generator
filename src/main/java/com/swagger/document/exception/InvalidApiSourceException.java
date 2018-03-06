@@ -7,5 +7,4 @@ public class InvalidApiSourceException extends RuntimeException {
 	public InvalidApiSourceException(String message) {
 		super(message);
 	}
-
 }

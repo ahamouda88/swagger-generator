@@ -1,41 +1,14 @@
-package com.swagger.document.mavenplugin;
+package com.groupon.swagger.plugin;
 
-import java.io.File;
 import java.util.List;
 
-import org.apache.maven.plugin.testing.AbstractMojoTestCase;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import com.google.common.collect.Lists;
-import com.swagger.document.mavenplugin.ApiDocumentMojo;
+import com.groupon.swagger.common.BaseMavenPluginTest;
 import com.swagger.document.mavenplugin.ApiSource;
 
-import io.swagger.jaxrs.ext.SwaggerExtension;
-import io.swagger.jaxrs.ext.SwaggerExtensions;
-
-public class ApiDocumentMojoTest extends AbstractMojoTestCase {
-	private static final String PLUGIN_CONFIG_PATH = "src/test/resources/plugin/plugin-config.xml";
-
-	private ApiDocumentMojo mojo;
-	private List<SwaggerExtension> extensions;
-
-	@Override
-	@Before
-	protected void setUp() throws Exception {
-		super.setUp();
-
-		File testPom = new File(getBasedir(), PLUGIN_CONFIG_PATH);
-		mojo = (ApiDocumentMojo) lookupMojo("generate", testPom);
-	}
-
-	@Override
-	@After
-	protected void tearDown() throws Exception {
-		super.tearDown();
-		SwaggerExtensions.setExtensions(extensions);
-	}
+public class ApiDocumentMojoTest extends BaseMavenPluginTest {
 
 	@Test
 	public void testApiSourceParameters() throws Exception {

@@ -9,8 +9,16 @@ Do the Document Reader which is mainly the Reader in above!
 
 ApiDocumetMojo: 
 - Will just validate ApiSource
-- Will send ApiSource to Reader, and get a swagger (WILL NOT CREATE A SWAGGER)
+- Will send ApiSource to DocumentSource, and get a swagger (WILL NOT CREATE A SWAGGER)
 - Will write the swagger to File
 
-DocumetReader (Abstract):
+DocumentSource:
+- Will apply logic to generate the swagger, like sort!,..do this and not that by calling Swagger Reader
+- Send ApiSource to Swagger Reader
+- (MAYBE HAVE THE LOGIC TO WRITE TO THE FILE HERE!)
+- Will get the classes that has annotation API and use the reader to set them
 
+Swagger Reader:
+- Will use component utilities to create swagger components
+
+In the generator class there will be a check if Api is hidden do nothing!!

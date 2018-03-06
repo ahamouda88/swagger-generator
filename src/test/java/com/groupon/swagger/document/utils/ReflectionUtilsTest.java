@@ -1,4 +1,4 @@
-package com.swagger.document.utils;
+package com.groupon.swagger.document.utils;
 
 import java.util.Set;
 
@@ -14,7 +14,7 @@ public class ReflectionUtilsTest {
 	@Test
 	public void testGetValidClassesWithValidPackage() {
 		Set<Class<?>> classes = ReflectionUtils.getValidClasses(RestController.class,
-				Lists.newArrayList("com.groupon.utils"));
+				Lists.newArrayList("com.groupon.swagger.document.utils"));
 		Assert.assertTrue(classes.contains(ParentClass.class));
 		Assert.assertTrue(classes.contains(ChildClass.class));
 	}

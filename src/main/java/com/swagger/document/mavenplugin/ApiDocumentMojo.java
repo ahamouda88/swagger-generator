@@ -19,7 +19,6 @@ import org.springframework.util.CollectionUtils;
 
 import com.swagger.document.exception.InvalidApiSourceException;
 
-
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.COMPILE, requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, threadSafe = true)
 public class ApiDocumentMojo extends AbstractMojo {
 
@@ -28,8 +27,6 @@ public class ApiDocumentMojo extends AbstractMojo {
 
 	@Parameter(defaultValue = "${project}", readonly = true)
 	private MavenProject project;
-
-	private String projectEncoding;
 
 	@Component
 	private MavenProjectHelper projectHelper;
@@ -46,17 +43,12 @@ public class ApiDocumentMojo extends AbstractMojo {
 
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
-//		if (skipSwaggerGeneration) {
-//			getLog().info("Swagger generation is skipped.");
-//			return;
-//		}
-//
-//		if (project != null) {
-//			projectEncoding = project.getProperties().getProperty("project.build.sourceEncoding");
-//		}
-//
-//		if (apiSources == null)
-//			throw new MojoFailureException(API_SOURCE_MISSING);
+		if (skipSwaggerGeneration) {
+			getLog().info("Swagger generation is skipped.");
+			return;
+		}
+
+		if (apiSources == null) throw new MojoFailureException(API_SOURCE_MISSING);
 //
 //		try {
 //			getLog().debug(apiSources.toString());
