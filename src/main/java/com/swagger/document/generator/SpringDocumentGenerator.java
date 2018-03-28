@@ -1,4 +1,4 @@
-package com.swagger.document.reader;
+package com.swagger.document.generator;
 
 import java.lang.reflect.Type;
 import java.util.Set;
@@ -6,9 +6,9 @@ import java.util.Set;
 import com.google.common.collect.Sets;
 import com.swagger.document.mavenplugin.ApiSource;
 
-public class SpringDocumentReader extends DocumentReader {
+public class SpringDocumentGenerator extends DocumentGenerator {
 
-    public SpringDocumentReader(ApiSource apiSource) {
+    public SpringDocumentGenerator(ApiSource apiSource) {
         super(apiSource);
     }
 

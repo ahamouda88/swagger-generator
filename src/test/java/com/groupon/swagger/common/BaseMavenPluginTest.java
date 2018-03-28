@@ -18,7 +18,7 @@ public abstract class BaseMavenPluginTest extends AbstractMojoTestCase {
     protected void setUp() throws Exception {
         super.setUp();
 
-        File testPom = new File(getBasedir(), PLUGIN_CONFIG_PATH);
+        final File testPom = new File(getBasedir(), PLUGIN_CONFIG_PATH);
         mojo = (ApiDocumentMojo) lookupMojo("generate", testPom);
     }
 

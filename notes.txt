@@ -22,3 +22,9 @@ Swagger Reader:
 - Will use component utilities to create swagger components
 
 In the generator class there will be a check if Api is hidden do nothing!!
+
+
+Packages:
+=========
+Scanner Package --> Scans for annotations ex: spring,...
+Generator Package --> Generates Swagger docs 

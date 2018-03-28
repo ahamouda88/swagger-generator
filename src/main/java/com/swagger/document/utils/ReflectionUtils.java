@@ -11,15 +11,24 @@ import com.google.common.collect.Lists;
 
 public class ReflectionUtils {
 
-	public static Set<Class<?>> getValidClasses(Class<? extends Annotation> clazz) {
-		return getValidClasses(clazz, Lists.newArrayList(""));
-	}
+    public static Set<Class<?>> getValidClasses(Class<? extends Annotation> clazz) {
+        return getValidClasses(clazz, Lists.newArrayList(""));
+    }
 
-	public static Set<Class<?>> getValidClasses(Class<? extends Annotation> clazz, List<String> packages) {
-		Set<Class<?>> classes = new LinkedHashSet<>();
-		packages.stream().forEach(path -> {
-			classes.addAll(new Reflections(path).getTypesAnnotatedWith(clazz, true));
-		});
-		return classes;
-	}
+    public static Set<Class<?>> getValidClasses(Class<? extends Annotation> clazz,
+                                                List<String> packages) {
+        Set<Class<?>> classes = new LinkedHashSet<>();
+        packages.stream().forEach(path -> {
+            classes.addAll(new Reflections(path).getTypesAnnotatedWith(clazz, true));
+        });
+        return classes;
+    }
+
+    public static Set<Class<?>> getValidClasses(Set<Class<? extends Annotation>> annotations, List<String> packages) {
+        Set<Class<?>> classes = new LinkedHashSet<>();
+        annotations.forEach(annotation -> {
+            classes.addAll(getValidClasses(annotation, packages));
+        });
+        return classes;
+    }
 }

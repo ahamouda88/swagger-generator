@@ -1,4 +1,4 @@
-package com.groupon.swagger.reader;
+package com.groupon.swagger.generator;
 
 import java.util.List;
 
@@ -9,22 +9,22 @@ import com.google.common.collect.Sets;
 import com.groupon.swagger.common.BaseMavenPluginTest;
 import com.groupon.swagger.test.files.DocumentReaderSwaggerFile1;
 import com.groupon.swagger.test.files.DocumentReaderSwaggerFile2;
-import com.swagger.document.reader.DocumentReader;
+import com.swagger.document.generator.DocumentGenerator;
 
 import io.swagger.annotations.Api;
 import io.swagger.models.Scheme;
 import io.swagger.models.Swagger;
 import io.swagger.models.Tag;
 
-public class DocumentReaderTest extends BaseMavenPluginTest {
+public class DocumentGeneratorTest extends BaseMavenPluginTest {
 
-    private DocumentReader documentReader;
+    private DocumentGenerator documentReader;
 
     @Before
     @Override
     public void setUp() throws Exception {
         super.setUp();
-        documentReader = new DocumentReader(mojo.getApiSources().get(0));
+        documentReader = new DocumentGenerator(mojo.getApiSources().get(0));
     }
 
     @Test
@@ -60,12 +60,12 @@ public class DocumentReaderTest extends BaseMavenPluginTest {
     }
 
     private Swagger setupDocumentReaderFile(Class<?> clazz) {
-        Api api = clazz.getAnnotation(Api.class);
-        documentReader.setTags(api);
-        documentReader.setConsumes(api);
-        documentReader.setProduces(api);
-        documentReader.setScheme(api);
-        documentReader.setSecurityRequirements(api);
+//        Api api = clazz.getAnnotation(Api.class);
+//        documentReader.setTags(api);
+//        documentReader.setConsumes(api);
+//        documentReader.setProduces(api);
+//        documentReader.setScheme(api);
+//        documentReader.setSecurityRequirements(api);
 
         return documentReader.getSwagger();
     }
