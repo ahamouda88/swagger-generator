@@ -25,7 +25,6 @@
         <junit-addons.version>1.4</junit-addons.version>
 
         <commons-io.version>2.0.1</commons-io.version>
-        <guava.version>r05</guava.version>
         <java.version>1.8</java.version>
         <junit.version>4.12</junit.version>
         <maven.version>3.5.2</maven.version>
@@ -112,12 +111,6 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons-io.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
         </dependency>
 
         <!-- Java RX -->

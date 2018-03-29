@@ -70,14 +70,6 @@ public class DocumentGenerator {
         });
     }
 
-    public void setTags(Api api) {
-        Map<String, Tag> tagsMap = new HashMap<>();
-        for (Tag tag : MainComponentUtils.getTags(api)) {
-            tagsMap.put(tag.getName(), tag);
-        }
-        tagsMap.values().forEach(tag -> swagger.tag(tag));
-    }
-
     public Swagger getSwagger() {
         return swagger;
     }

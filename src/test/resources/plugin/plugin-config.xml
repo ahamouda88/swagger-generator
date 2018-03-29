@@ -9,7 +9,7 @@
                     <apiSources>
                         <apiSource>
                             <locations>
-                                <location>com.groupon.springmvc</location>
+                                <location>com.groupon.swagger</location>
                             </locations>
                             <schemes>
                                 <scheme>http</scheme>

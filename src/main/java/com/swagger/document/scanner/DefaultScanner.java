@@ -52,10 +52,10 @@ public class DefaultScanner {
         final DefaultScanner reader = new DefaultScanner(swagger);
         for (Class<?> cls : classes) {
             final ReaderContext context = new ReaderContext(swagger, cls, "", null, false,
-                                                            new ArrayList<String>(),
-                                                            new ArrayList<String>(),
-                                                            new ArrayList<String>(),
-                                                            new ArrayList<Parameter>());
+                                                            new ArrayList<>(),
+                                                            new ArrayList<>(),
+                                                            new ArrayList<>(),
+                                                            new ArrayList<>());
             reader.read(context);
         }
     }
