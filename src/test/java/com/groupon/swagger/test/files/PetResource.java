@@ -6,6 +6,8 @@ import com.sun.jersey.core.header.FormDataContentDisposition;
 import com.sun.jersey.multipart.FormDataParam;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
@@ -30,6 +32,9 @@ public class PetResource {
                     @ApiResponse(code = 400, message = "Invalid ID supplied"),
                     @ApiResponse(code = 404, message = "Pet not found")
     })
+//    @ApiImplicitParams(value = {
+//    		@ApiImplicitParam(value="petId", required = true)
+//    })
     public void getPetById(@ApiParam(value = "ID of pet to return") Long petId) {}
 
     @ApiOperation(value = "Deletes a pet", httpMethod = "DELETE")
@@ -40,12 +45,10 @@ public class PetResource {
     public void deletePet(@ApiParam() String apiKey,
                           @ApiParam(value = "Pet id to delete", required = true) Long petId) {}
 
-    @ApiOperation(value = "uploads an image", response = ApiResponse.class, httpMethod = "POST")
+    @ApiOperation(value = "uploads an image", response = Pet.class, httpMethod = "POST")
     public void uploadFile(@ApiParam(value = "ID of pet to update",
                     required = true) Long petId,
-                           @ApiParam(value = "Additional data to pass to server") @FormDataParam("additionalMetadata") String testString,
-                           @ApiParam(value = "file to upload") @FormDataParam("file") InputStream inputStream,
-                           @ApiParam(value = "file detail") @FormDataParam("file") FormDataContentDisposition fileDetail) {
+                           @ApiParam(value = "Additional data to pass to server") @FormDataParam("additionalMetadata") String testString) {
 
     }
 

@@ -18,7 +18,7 @@ public class ApiDocumentMojoTest extends BaseMavenPluginTest {
 		ApiSource apiSource = apiSources.get(0);
 		assertEquals("/api", apiSource.getBasePath());
 		assertEquals("www.groupon.com", apiSource.getHost());
-		assertEquals("com.groupon.springmvc", apiSource.getLocations().get(0));
+		assertEquals("com.groupon.swagger", apiSource.getLocations().get(0));
 		assertEquals(Lists.newArrayList("http", "https"), apiSource.getSchemes());
 		assertEquals("Swagger Maven Plugin Sample", apiSource.getInfo().getTitle());
 		assertEquals("v1", apiSource.getInfo().getVersion());

@@ -19,7 +19,6 @@ import io.swagger.annotations.Extension;
 import io.swagger.annotations.ExtensionProperty;
 import io.swagger.models.SecurityRequirement;
 import io.swagger.models.Tag;
-import io.swagger.models.properties.Property;
 
 public interface MainComponentUtils {
 

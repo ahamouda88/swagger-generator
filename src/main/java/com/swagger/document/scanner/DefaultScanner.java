@@ -110,7 +110,7 @@ public class DefaultScanner {
                     operation.defaultResponse(new Response().description("successful operation"));
                 }
 
-                final Map<String, String> regexMap = new HashMap<String, String>();
+                final Map<String, String> regexMap = new HashMap<>();
                 final String parsedPath = PathUtils.parsePath(operationPath, regexMap);
 
                 Path path = swagger.getPath(parsedPath);
