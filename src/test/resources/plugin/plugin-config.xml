@@ -9,7 +9,7 @@
                     <apiSources>
                         <apiSource>
                             <locations>
-                                <location>com.groupon.swagger</location>
+                                <location>com.groupon.swagger.test.files</location>
                             </locations>
                             <schemes>
                                 <scheme>http</scheme>
